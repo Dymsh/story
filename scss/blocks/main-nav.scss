@@ -1,0 +1,25 @@
+.main-nav {
+
+
+}
+.main-nav__items {
+  display: flex;
+  justify-content: space-between;
+  font-family: "typewriter";
+}
+.main-nav__item {
+  flex-grow: 1;
+  text-align: center;
+  padding: 10px 0;
+  font: 24px/24px 'typewriter';
+}
+.main-nav__item a {
+  transition: text-shadow 0.5s;
+  &:hover {
+    border-bottom: 1px solid red;
+    text-shadow: 0 0 1px #000;
+  }
+}
+.main-nav__item--border a {
+  border-bottom: 1px solid #e7e7e7;
+}

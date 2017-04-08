@@ -1,0 +1,16 @@
+.main-header {
+
+}
+.main-header__wrapper {
+  @include container;
+}
+.main-header__logo {
+  margin: 0px;
+  text-align: center;
+  font: 100px/110px 'SdGeorgiaLight';
+  box-shadow: 0 5px 0px #6c6c6c,
+              0 10px 0 #fff,
+              0 11px 0 red;
+  margin-bottom: 26px;
+
+}

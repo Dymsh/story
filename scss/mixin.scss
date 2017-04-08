@@ -1,0 +1,4 @@
+@mixin container ($width: 1150px){
+  width: $width;
+  margin: 0 auto;
+}
