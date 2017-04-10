@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>readme</title>
+</head>
+<body class="page">
+  <header class="main-header">
+    <div class="main-header__wrapper">
+      <nav class="main-nav">
+        <ul class="main-nav__items">
+          <li class="main-nav__item main-nav__item--border"><a href="#">readme</a></li>
+          <li class="main-nav__item"><a href="">рассказы</a></li>
+          <li class="main-nav__item"><a href="">анекдоты</a></li>
+          <li class="main-nav__item"><a href="">разное</a></li>
+          <li class="main-nav__item"><a href="">вход</a></li>
+        </ul>
+      </nav>
+      <h1 class="main-header__logo">readme.memff</h1>
+    </div>
+  </header>
+  <main class="main">
+		<?php include './'.$_GET['modules'].'/'.$_GET['page'].'.html';?>
+  </main>
+<script src="js/putText.js"></script>
+</body>
+</html>

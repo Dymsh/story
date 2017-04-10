@@ -23,8 +23,8 @@
   },
   "scripts": {
     "build": "gulp build",
-    "go": "gulp server",
-    "start": "gulp server"
+    "go": "gulp browserSync",
+    "start": "gulp serve"
   },
   "engines": {
     "node": "6.10"
