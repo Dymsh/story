@@ -3,6 +3,8 @@
 }
 .main-header__wrapper {
   @include container;
+  position: relative;
+
 }
 .main-header__logo {
   margin: 0px;
@@ -12,5 +14,12 @@
               0 10px 0 #fff,
               0 11px 0 red;
   margin-bottom: 26px;
-  
+  transition: 2s;
+  &--auth {
+    font-size: 80px;
+    text-align: left;
+  }
+  &--auth span {
+    color: #6c6c6c;
+  }
 }

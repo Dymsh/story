@@ -17,7 +17,7 @@ var del = require("del");
 var uglify = require("gulp-uglify");
 
 gulp.task("clean", function() {
-  return del("build/**");
+  return del(['build/**', '!build']);
 });
 
 gulp.task ("copy", function() {
@@ -34,16 +34,25 @@ gulp.task ("copy", function() {
   })
   .pipe(gulp.dest("build"));
 })
-gulp.task ('phpHtmlCopy', function(done) {
-  return gulp.src(['*.{php,html}'], {
+gulp.task ('php_update', function() {
+  return gulp.src(['*.php', 'modules/**/*.php', 'libs/**/*.php'], {
     base: "."
   })
   .pipe(gulp.dest("build"))
-  browserSync.reload()
-  done();
+  .pipe(browserSync.stream());
 });
-gulp.task ('phpHtmlCopy2', function() {
-  return gulp.src(['modules/**/*.{php,html}'], {
+
+gulp.task ('html_update', function() {
+  return gulp.src(['*.html', 'modules/**/*.html'], {
+    base: "."
+  })
+  .pipe(gulp.dest("build"))
+  .pipe(browserSync.stream());
+
+});
+
+gulp.task ('js_update', function() {
+  return gulp.src('js/*.js', {
     base: "."
   })
   .pipe(gulp.dest("build"))
@@ -123,8 +132,8 @@ gulp.task("browserSync", function() {
   browserSync.init({
     proxy:'story'
   });
-  gulp.watch("*.{php,html}", ['phpHtmlCopy']);
-  gulp.watch("modules/**/*.{php,html}", ['phpHtmlCopy2']);
-  gulp.watch("js/*.js", ['uglify']);
+  gulp.watch(["*.php", 'modules/**/*.php', 'libs/**/*.php'], ['php_update']);
+  gulp.watch(["*.html",'modules/**/*.html'], ['html_update']);
+  gulp.watch("js/*.js", ['js_update']);
   gulp.watch("scss/**/*.{scss,sass}", ['style']);
 });

@@ -1,6 +1,5 @@
 .main-nav {
 
-
 }
 .main-nav__items {
   display: flex;
@@ -12,8 +11,13 @@
   text-align: center;
   padding: 10px 0;
   font: 24px/24px 'typewriter';
+  &--hidden {
+    display: none;
+  }
 }
-.main-nav__item a {
+.main-nav__item a,
+.main-nav__item span {
+  cursor: pointer;
   transition: text-shadow 0.5s;
   &:hover {
     border-bottom: 1px solid red;

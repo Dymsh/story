@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>readme</title>
@@ -12,19 +12,36 @@
     <div class="main-header__wrapper">
       <nav class="main-nav">
         <ul class="main-nav__items">
-          <li class="main-nav__item main-nav__item--border"><a href="#">readme</a></li>
-          <li class="main-nav__item"><a href="">рассказы</a></li>
+          <li class="main-nav__item main-nav__item--border"><a href="/static/main">readme</a></li>
+          <li class="main-nav__item"><a href="/test/test">рассказы</a></li>
           <li class="main-nav__item"><a href="">анекдоты</a></li>
           <li class="main-nav__item"><a href="">разное</a></li>
-          <li class="main-nav__item"><a href="">вход</a></li>
+          <li class="main-nav__item <?php if (isset($_SESSION['user']))  echo $hide ;?>" id="openBlock"><span>вход</span></li>
+          <li class="main-nav__item <?php if (!isset($_SESSION['user']))  echo $hide ;?>" id="cab"><span><a href="/cabinet/cab">кабинет</a></span></li>
+          <li class="main-nav__item <?php if (!isset($_SESSION['user']))  echo $hide ;?>" id="closeBlock"><a href="/static/exit?exit=true">выход</a></li>
         </ul>
       </nav>
-      <h1 class="main-header__logo">readme.memff</h1>
+      <h1 class="main-header__logo">readme.<?php if(isset($_SESSION['user'])) echo $_SESSION['user']['author'];?></h1>
+      <div class="auth">
+        <div class="auth__wrapper">
+          <form name="auth" class="auth__form" action="" method="post">
+            <div for="login" class="auth__mess"></div>
+            <input class="auth__login" type="text" name="login" value="" placeholder="логин">
+            <div class="auth__mess auth__mess--pass"></div>
+            <input class="auth__pass" type="text" name="password" value="" placeholder="пароль">
+            <div class="auth__wrap-inner">
+              <button class="auth__btn" type="button" name="sub_auth">войти</button>
+              <div class="auth__reg"><a href="/auth/reg">Новый автор</a></div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </header>
   <main class="main">
-		<?php include './'.$_GET['modules'].'/'.$_GET['page'].'.html';?>
+		<?php include './modules/'.$_GET['modules'].'/'.$_GET['page'].'.html';?>
   </main>
-<script src="js/putText.js"></script>
+<script src="/js/openAuth.js"></script>
+<script src="/js/checkForm.js"></script>
 </body>
 </html>

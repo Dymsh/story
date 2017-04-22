@@ -1,0 +1,11 @@
+.reg {
+
+}
+.reg__wrapper {
+  @include container;
+
+}
+.reg__input {
+  border: 1px solid black;
+  margin: 10px;
+}

@@ -6,6 +6,7 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+
 }
 
 ul {
@@ -17,4 +18,12 @@ li {
   padding: 0px;
   margin: 0px;
   list-style-type: none;
+}
+input {
+  display: block;
+  border: none;
+  outline: none;
+  &:active {
+    outline: none;
+  }
 }

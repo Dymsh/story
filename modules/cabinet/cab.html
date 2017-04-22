@@ -1,0 +1,29 @@
+
+<h1>Добро пожаловать в ваш кабинет <?php echo $_SESSION['user']['author']; ?></h1>
+<p>В кабинете представлены все ваши работы. Здесь можно редактировать ваши сочинения, добалять новые шедевры, либо уничтожать
+ужасы, что бы никто их не увидил
+</p>
+<a href="/cabinet/add">добавить новое произведение</a>
+<div class="table">
+  <table class="table__main">
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>type</th>
+      <th>public</th>
+      <th>rating</th>
+      <th>delete</th>
+    </tr>
+    <?php while($res = mysqli_fetch_assoc($row)) {
+      echo '
+    <tr>
+      <td>'.$res['id'].'</td>
+      <td>'.$res['name'].'</td>
+      <td>'.$res['type'].'</td>
+      <td>'.$res['public'].'</td>
+      <td>'.$res['rating'].'</td>
+      <td><a href = "/cabinet/cab?del=true">del</a></td>
+    ';}?>
+
+  </table>
+</div>

@@ -23,7 +23,6 @@
   },
   "scripts": {
     "build": "gulp build",
-    "go": "gulp browserSync",
     "start": "gulp serve"
   },
   "engines": {

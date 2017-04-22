@@ -1,0 +1,48 @@
+<h2><?php if (isset($_GET['story_name'])) echo 'Ваш рассказ <span style="color: green;">'.$_GET['story_name'].'</span> успешно опубликован.'; else echo 'добавление нового произведени'; ?></h2>
+<a href="/cabinet/cab">Вернуться в кабинет</a>
+<form name="addStory" action="" method = "post">
+  название
+  <div class="error__name"></div>
+  <input style="border: 1px solid black;" type="text" name="name" value="">
+
+  <select name="type">
+    <option disabled>Выберите раздел для размещения</option>
+    <option value="юмористический рассказ" selected>юмористический рассказ</option>
+    <option value="анекдот">анекдот</option>
+    <option value="несмешной анекдот">несмешной анекдот</option>
+  </select><br>
+  Поместите сюда произведение<br>
+  <div class="error__text"></div>
+  <textarea name="preview" placeholder="здесь добавтье маленькое описание,
+
+  рецензию на произведения, она будет выводится в описании к вашему произведению"></textarea>
+  <textarea name="text" placeholder="текст вашего произведения"></textarea>
+
+  <input type="submit" name="submit" value="Опубликовать">
+</form>
+
+<script>
+var form = document.forms.addStory;
+var errorText = document.querySelector('.error__text');
+var errorName = document.querySelector('.error__name');
+
+
+form.addEventListener('submit', function(){
+  var text = form.elements.text.value;
+  var name = form.elements.name.value;
+console.log(name);
+  if (text.length == 0 ) {
+    event.preventDefault();
+    errorText.innerHtml = 'Ничего нет, добавьте сюда Ваше произведение';
+  }else {
+    errorText.innerHtml = '';
+  }
+
+  if (name.length == 0 ) {
+    event.preventDefault();
+    errorName.innerHtml = 'Укажите название Вашего произведения';
+  }else {
+    errorName.innerHtml = '';
+  }
+});
+</script>

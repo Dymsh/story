@@ -1,0 +1,72 @@
+.auth {
+  position: relative;
+  font: 20px 'typewriter';
+  position: absolute;
+  width: 300px;
+  border: 1px solid #979797;
+  top: 50px;
+  right: 0px;
+  background: #fff;
+  box-shadow: 1px 3px 5px 1px #b2afaf;
+  display: block;
+  transition: 0.5s;
+  opacity: 0;
+  &--appear {
+    opacity: 1;
+  }
+}
+.auth__wrap-inner {
+  display: flex;
+  justify-content: space-between;
+}
+.auth__wrapper {
+  padding: 20px;
+}
+.auth__form {
+  display: flex;
+  flex-direction: column;
+}
+.auth__login,
+.auth__pass {
+  padding: 5px;
+  font: 20px 'typewriter';
+  margin-bottom: 20px;
+  border: 1px solid #979797;
+}
+
+.auth__mess {
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  color: red;
+  font-size: 16px;
+  &--pass {
+    top: 56px;
+  }
+}
+
+.auth__btn {
+  cursor: pointer;
+  width: 80px;
+  padding: 5px;
+  background-color: transparent;
+  border: 2px solid #979797;
+  border-radius: 2px;
+  font: 20px 'typewriter';
+  &:hover {
+    border-color: #000;
+    background-color: #000;
+    color: #fff;
+  }
+}
+.auth__reg a{
+  border-bottom: 1px solid $gray;
+  line-height: 37px;
+  &:hover {
+    border-bottom: 1px solid red;
+
+  }
+  &:active {
+    text-shadow: 0 0 1px #000;
+  }
+}
