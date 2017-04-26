@@ -4,6 +4,8 @@
 .main-header__wrapper {
   @include container;
   position: relative;
+  border: none;
+  padding: 10px 0;
 
 }
 .main-header__logo {

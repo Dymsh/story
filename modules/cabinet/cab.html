@@ -1,29 +1,55 @@
+<div class="cabinet">
+  <div class="cabinet__wrapper">
+    <h2 class="cabnet__header">Добро пожаловать в ваш кабинет <?php echo $_SESSION['user']['author']; ?></h2>
+    <p class="cabinet__description">В кабинете представлены все ваши работы. Здесь можно редактировать ваши сочинения, добалять новые шедевры, либо уничтожать
+    ужасы, что бы никто их не увидил
+    </p>
+    <h3 class="cabinet__info"><?php if(isset($_SESSION['info'])) {echo $_SESSION['info']; unset($_SESSION['info']);}?></h2>
+    <a class="btn btn--link" href="/cabinet/add">добавить новое</a>
+    <div class="cabinet__table">
+      <table class="table">
+        <tr>
+          <th>#</th>
+          <th>Название</th>
+          <th>Жанр</th>
+          <th>Состояние</th>
+          <th>Рейтинг</th>
+          <th>Удалить</th>
+        </tr>
+        <?php while($res = mysqli_fetch_assoc($row)) {
+          echo '
+        <tr class="table__row">
+          <td class="table__id">'.$res['id'].'</td>
+          <td class="table__name" title="Редактировать">
+            <a class="table__link" href="/cabinet/edit?id='.$res['id'].'">'.htmlspecialchars($res['name']).'</a>
+          </td>
+          <td class="table__type">'.$res['type'].'</td>
+          <td class="table__public">'.$res['public'].'</td>
 
-<h1>Добро пожаловать в ваш кабинет <?php echo $_SESSION['user']['author']; ?></h1>
-<p>В кабинете представлены все ваши работы. Здесь можно редактировать ваши сочинения, добалять новые шедевры, либо уничтожать
-ужасы, что бы никто их не увидил
-</p>
-<a href="/cabinet/add">добавить новое произведение</a>
-<div class="table">
-  <table class="table__main">
-    <tr>
-      <th>id</th>
-      <th>name</th>
-      <th>type</th>
-      <th>public</th>
-      <th>rating</th>
-      <th>delete</th>
-    </tr>
-    <?php while($res = mysqli_fetch_assoc($row)) {
-      echo '
-    <tr>
-      <td>'.$res['id'].'</td>
-      <td>'.$res['name'].'</td>
-      <td>'.$res['type'].'</td>
-      <td>'.$res['public'].'</td>
-      <td>'.$res['rating'].'</td>
-      <td><a href = "/cabinet/cab?del=true">del</a></td>
-    ';}?>
-
-  </table>
+          <td class="table__rating">'.$res['rating'].'</td>
+          <td class="table__del"><a href="/cabinet/cab?del='.$res['id'].'&name='.$res['name'].'" class="table__del">del</a></td>
+        ';}?>
+      </table>
+      <div class="modal">
+        <p>Точно хотите удалить ?</p>
+        <button class="modal__btn modal__btn--true">Да</button>
+        <button class="modal__btn modal__btn--false">Нет</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+var btnPublic = document.querySelectorAll('.table__public');
+
+for (var i = 0; i < btnPublic.length; i++) {
+  btnPublic[i].addEventListener('click', function(){
+    if (this.innerHTML == 'Опубликовано') {
+      this.innerHTML = 'На редакции';
+    }else {
+      this.innerHTML = 'Опубликовано';
+    }
+  });
+}
+
+</script>

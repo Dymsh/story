@@ -1,28 +1,51 @@
 <div  class="text">
-  <?php while($res = mysqli_fetch_assoc($row)) {
-    echo '
-  <section class="text__article">
-    <div class="text__blcok">
-      <div class="text__name">
-        '.$res['name'].'
-      </div>
-      <div class="text__author">
-        '.$res['author'].'
-      </div>
-      <div class="text__type">
-        '.$res['type'].'
-      </div>
-      <div class="text__date">
-        '.$res['date'].'
+  <div class="text__wrapper">
+    <?php while($res = mysqli_fetch_assoc($row)) {
+      echo '
+    <section class="text__article">
+      <div class="text__wrap-inner">
+        <div class="text__name">
+          '.$res['name'].'
+        </div>
+        <div class="text__author">
+            '.$res['author'].'
+          </div>
+        <div class="text__date">
+            '.$res['date'].'
+          </div>
       </div>
       <div class="text__preview">
-        '; if(!$res['preview']) {echo 'автор не оставил описания своей работы';} else {echo $res['preview'];}
-        echo '
-      </div>
-    </div>
-  </section>
-
-
+          '; if(!$res['preview']) {echo 'автор не оставил описания своей работы';} else {echo save_space(htmlspecialchars($res['preview']));}
+          echo '
+        </div>
+      <div class="text__main text__main--hidden">
+          '.save_space(htmlspecialchars($res['text'])).'
+        </div>
+    </section>
     ';
-  };?>
+    };?>
+  </div>
 </div>
+<script>
+var section = document.querySelectorAll('.text__article');
+
+// section[0].children[2].style.display = 'none';
+
+for(var i =0 ;i < section.length; i++ ) {
+  section[i].addEventListener('click', function() {
+    if (this.children[1].classList.contains('text__preview--hidden')) {
+      this.children[1].classList.remove('text__preview--hidden');
+    }else {
+      this.children[1].classList.add('text__preview--hidden');
+    }
+    if (this.children[2].classList.contains('text__main--hidden')) {
+      this.children[2].classList.remove('text__main--hidden');
+    }else {
+      this.children[2].classList.add('text__main--hidden');
+    }
+  });
+}
+
+
+
+</script>

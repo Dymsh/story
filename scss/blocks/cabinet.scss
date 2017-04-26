@@ -1,0 +1,62 @@
+.cabinet {
+
+}
+.cabinet__info {
+  color: green;
+}
+.cabinet__wrapper {
+  @include container;
+  border: 1px solid #e7e7e7;
+  border-radius: 2px;
+  padding-top: 40px;
+  padding: 15px;
+  //text-align: left;
+  box-sizing: border-box;
+}
+.cabinet__header {
+
+}
+.cabinet__description {
+  font-size: 15px;
+}
+.cabinet__link-btn {
+  display: block;
+
+}
+.table {
+  margin-top: 20px;
+  color: #686461;
+  font-size: 16px;
+  border: 1px solid #b9b29f;
+  border-collapse: collapse;
+}
+.table tr:nth-child(2n) {
+  background-color: #e8e6d1;
+}
+.table tr:nth-child(2n+1) {
+  background-color: #ffffff;
+}
+.table td {
+  border: 1px dotted #b9b29f;
+  text-align: center;
+  padding: 5px;
+}
+.table th {
+  border: 1px dotted #b9b29f;
+  padding: 7px;
+}
+.table .table__name {
+  text-align: left;
+}
+.table__public {
+  cursor: pointer;
+  &:hover {
+    background-color: red;
+  }
+}
+.table__name {
+  &:hover {
+    background-color: red;
+    cursor: pointer;
+  }
+}

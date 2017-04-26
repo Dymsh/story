@@ -1,0 +1,27 @@
+<div  class="text">
+  <?php while($res = mysqli_fetch_assoc($row)) {
+    echo '
+  <section class="text__article">
+    <div class="text__blcok">
+      <div class="text__name">
+        '.$res['name'].'
+      </div>
+      <div class="text__author">
+        '.$res['author'].'
+      </div>
+      <div class="text__type">
+        '.$res['type'].'
+      </div>
+      <div class="text__date">
+        '.$res['date'].'
+      </div>
+      <div class="text__preview">
+        '; if(!$res['preview']) {echo 'автор не оставил описания своей работы';} else {echo $res['preview'];}
+        echo '
+      </div>
+    </div>
+  </section>
+  <hr>
+    ';
+  };?>
+</div>

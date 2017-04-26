@@ -1,5 +1,23 @@
-<h1>hello html</h1>
-<form class="form--test" method="post" acton="">
-  <input class="" type="text" name="login" value=""><br>
-  <button class="btn btn--test" id="test" type="button">push_me</button>
-</form>
+<a id="btn" href="">кнопка</a>
+
+<div class="div__block" style="border: 1px solid red; margin: 20px; width: 200px; height: 100px;">bratik</div>
+
+<script>
+var btn = document.getElementById('btn');
+var block = document.querySelector('.div__block');
+// block.innerHtml = 'new text';
+console.dir(block.innerHtml);
+console.dir(btn);
+
+btn.addEventListener('click', function() {
+
+
+  if (block.innerHTML == 'bratik') {
+    event.preventDefault();
+    block.innerHTML = 'atik'
+    // event.preventDefault();
+  } else {
+    block.innerHTML = 'bratik';
+  }
+});
+</script>

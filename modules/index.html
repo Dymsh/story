@@ -13,9 +13,9 @@
       <nav class="main-nav">
         <ul class="main-nav__items">
           <li class="main-nav__item main-nav__item--border"><a href="/static/main">readme</a></li>
-          <li class="main-nav__item"><a href="/test/test">рассказы</a></li>
-          <li class="main-nav__item"><a href="">анекдоты</a></li>
-          <li class="main-nav__item"><a href="">разное</a></li>
+          <li class="main-nav__item"><a href="/test/test">test</a></li>
+          <li class="main-nav__item"><a href="/static/story">рассказы</a></li>
+          <li class="main-nav__item"><a href="/static/joke">анекдоты</a></li>
           <li class="main-nav__item <?php if (isset($_SESSION['user']))  echo $hide ;?>" id="openBlock"><span>вход</span></li>
           <li class="main-nav__item <?php if (!isset($_SESSION['user']))  echo $hide ;?>" id="cab"><span><a href="/cabinet/cab">кабинет</a></span></li>
           <li class="main-nav__item <?php if (!isset($_SESSION['user']))  echo $hide ;?>" id="closeBlock"><a href="/static/exit?exit=true">выход</a></li>

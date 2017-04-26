@@ -6,6 +6,17 @@ function wtf($print,$stop=0){
 	}
 }
 
+function save_space($string) {
+	return $string = nl2br(str_replace(' ', '&nbsp', $string));
+	//return $string = nl2br($string);
+	//return $string = '<pre>'.$string.'</pre>';
+	//return $string;
+}
+
+function myhash($pas) {
+	return password_hash($pas , PASSWORD_DEFAULT);
+}
+
 function generatePassword($length = 8){
   $chars = 'abdefhiknrstyzABDEFGHKNQRSTYZ23456789';
   $numChars = strlen($chars);
@@ -25,7 +36,7 @@ function trimAll ($insert) {
 }
 
 function escape ($insert){
-	global $link; 
+	global $link;
 	$insert = mysqli_real_escape_string($link ,$insert);
 	return $insert;
 }
@@ -36,12 +47,12 @@ function query ($query) {
 	$file_puth = 'mysqli.log';
 	$res = mysqli_query($link, $query);
 	$error = date('Y-m-d h:i:s')."\n".mysqli_error($link)."\n\n".'file -'.$temp[0]['file']."\n".'line -'.$temp[0]['line']."\n".'function-'.$temp[0]['function']."\n\n";
-	
+
 	if (!$res) {
 		file_put_contents($file_puth, $error, FILE_APPEND);
 		$_SESSION['info']='<span style="color: red">Сбой работы БД! Операция не выполнена. </span>';
-		//header('Location: /static/main'); 
+		//header('Location: /static/main');
 		exit();
-	} 
+	}
 	return $res;
-} 
+}

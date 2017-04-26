@@ -1,9 +1,9 @@
 <div class="add">
   <div class="add__wrapper">
-    <h2 class="add__header"><?php if (isset($_GET['story_name'])) echo 'Ваш рассказ <span class="add__header-desc">('.$_GET['story_name'].')</span> успешно опубликован.'; else echo 'Новая публикация'; ?></h2>
+    <h2 class="add__header"><?php if (isset($_SESSION['info'])) {echo $_SESSION['info']; unset($_SESSION['info']);} else echo 'Странциа редактирования произвдения'?></h2>
     <div class="add__nav">
       <a class="btn btn--link" href="/cabinet/cab">Вернуться в кабинет</a>
-      <button form="addStory" class="btn btn--red" name="sub_form" type="submit" value="send">Опубликовать</button>
+      <button form="addStory" class="btn btn--red" name="sub_form" type="submit" value="send">Сохранить правки</button>
     </div>
     <form id="addStory" name="addStory" action="" method = "post">
       <span class="add__select-desc">Выберите раздел для размещения</span>
@@ -14,10 +14,10 @@
         <option value="Несмешной анекдот">Несмешной анекдот</option>
       </select>
       <div class="add__error-name"></div>
-      <input class="add__name" type="text" name="name" value="" placeholder="Укажите название">
-      <textarea class="add__preview" name="preview" wrap="hard" placeholder="Здесь добавьте анотацию, или просто небольшое описание вашего произведения"></textarea>
+      <input class="add__name" type="text" name="name" value="<?php echo $res['name']; ?>">
+      <textarea class="add__preview" name="preview" wrap="hard" ><?php if (isset($res['preview'])) echo $res['preview']; ?></textarea>
       <div class="add__error-text"></div>
-      <textarea class="add__text" wrap="hard" name="text" placeholder="Текст вашего произведения"></textarea>
+      <textarea class="add__text" wrap="hard" name="text"><?php echo $res['text'] ?></textarea>
     </form>
   </div>
 </div>

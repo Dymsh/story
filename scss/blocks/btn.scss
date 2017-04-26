@@ -1,6 +1,11 @@
 .btn {
-  display: block;
+  font: bold 14px/14px 'Georgia','Time-new-romans',serif;
+  display: inline-block;
   cursor: pointer;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 2px;
+  color: #5d7731;
   &--test {
     margin: 20px;
     border: 2px solid black;
@@ -8,10 +13,21 @@
     height: 30px;
     background-color: transparent;
   }
-}
-
-.form {
-  &--test {
-
+  &--link {
+    border-color: #8bb14d;
+    background: linear-gradient(to bottom, #cae285, #9fcb57);
+    transition:  0.2s;
+    &:hover {
+      color: #fff;
+    }
+  }
+  &--red {
+    color: #41788d;
+    border-color: #7eacc3;
+    transition:  0.2s;
+    background: linear-gradient(to bottom,#abe3fa ,#6dd0f0);
+    &:hover {
+      color: #fff;
+    }
   }
 }

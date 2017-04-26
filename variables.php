@@ -23,7 +23,7 @@ if (isset ($_GET['route'])){
 
 $link=mysqli_connect(Core::$dbhost, Core::$dblogin, Core::$dbpassword, Core::$dbname) or exit (mysqli_error($link));
 
-$pages=array('main','auth','404','test','exit','reg','cab','add');
+$pages=array('main','auth','404','test','exit','reg','cab','add','joke', 'story','edit');
 
 if (!isset($_GET['page'])){
 	$_GET['page']='main';

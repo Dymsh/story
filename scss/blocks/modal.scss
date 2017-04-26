@@ -1,0 +1,7 @@
+.modal {
+  display: none;
+  border: 1px solid black;
+  &--visible {
+    display: block;
+  }
+}

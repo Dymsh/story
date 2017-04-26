@@ -1,8 +1,4 @@
 <?php
-if (isset($_SESSION['info'])) {
-  $session_info = $_SESSION['info'];
-  unset($_SESSION['info']);
-};
 
 $hide = 'main-nav__item--hidden'; // конфигурация основного меню
 
